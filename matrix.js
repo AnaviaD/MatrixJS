@@ -82,7 +82,7 @@ window.addEventListener('resize', function(event) {
     "Ц",
   ];
 
- let maxCharCount = 2000;
+ let maxCharCount = 500;
  let fallingCharArr = [];
  let fontSize = 13;
  let maxColumns = cw/fontSize;
@@ -100,10 +100,10 @@ window.addEventListener('resize', function(event) {
         charArr[Math.floor(Math.random() * (charArr.length - 1))].toUpperCase();
       this.speed = (Math.random() * fontSize * 3) / 4 + (fontSize * 3) / 4;
   
-      ctx.fillStyle = "rgba(0,255,0)";
-      ctx.font = fontSize + "px sans-serif";
-      ctx.fillText(this.value, this.x, this.y);
-      this.y += this.speed;
+    ctx.fillStyle = "rgba(0,255,0)";
+    ctx.font = fontSize + "px sans-serif";
+    ctx.fillText(this.value, this.x, this.y);
+    this.y += this.speed;
   
       if (this.y > ch) {
         this.y = (Math.random() * ch) / 2 - 50;
@@ -120,7 +120,7 @@ window.addEventListener('resize', function(event) {
         let fallingChar = new FallingChar(Math.floor(Math.random() * maxColumns) * fontSize, (Math.random() * ch)/2 - 50);
         fallingCharArr.push(fallingChar);
     }
-    ctx.fillStyle = "rgb(0,0,0,0.5)";
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
     ctx.fillRect(0,0, cw, ch);
 
     for (let i = 0; i < fallingCharArr.length && frames % 2 == 0; i++) 
